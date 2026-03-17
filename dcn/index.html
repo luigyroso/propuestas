@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propuesta Comercial &mdash; Luigy Roso para DCN Autopartes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f8f8fa;
+      --bg-card: #ffffff;
+      --bg-card-hover: #fafafb;
+      --bg-elevated: #f0f0f3;
+      --border: rgba(0,0,0,0.06);
+      --border-bright: rgba(0,0,0,0.1);
+      --text: #111113;
+      --text-secondary: #52525b;
+      --text-muted: #9191a0;
+      --accent: #7c3aed;
+      --accent-light: #8b5cf6;
+      --accent-dim: rgba(124,58,237,0.08);
+      --accent-glow: rgba(124,58,237,0.15);
+      --cyan: #0891b2;
+      --cyan-dim: rgba(8,145,178,0.07);
+      --green: #16a34a;
+      --green-dim: rgba(22,163,74,0.07);
+      --amber: #d97706;
+      --amber-dim: rgba(217,119,6,0.07);
+      --red: #dc2626;
+      --red-dim: rgba(220,38,38,0.06);
+      --surface: #ffffff;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-xs: 6px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      position: relative;
+    }
+
+    /* Ambient glow blobs */
+    .glow-1, .glow-2, .glow-3 {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .glow-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(124,58,237,0.06), transparent 70%);
+      top: -300px; left: -200px;
+    }
+    .glow-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(8,145,178,0.05), transparent 70%);
+      top: 50%; right: -250px;
+    }
+    .glow-3 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(124,58,237,0.04), transparent 70%);
+      bottom: -150px; left: 20%;
+    }
+
+    /* Top nav bar */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 64px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .topbar-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status-dot {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(22,163,74,0.5);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* Hero */
+    .hero {
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(124,58,237,0.15);
+      border-radius: 100px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--text) 0%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .hero-sub strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-client {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+      width: fit-content;
+    }
+
+    .hero-client-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent-dim), var(--cyan-dim));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--accent);
+      border: 1px solid rgba(124,58,237,0.15);
+    }
+
+    .hero-client-text {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .hero-client-text strong {
+      display: block;
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Section styling */
+    .section {
+      margin-bottom: 64px;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* Context card */
+    .context-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .context-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .context-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .context-card strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .context-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .context-stat {
+      text-align: center;
+      padding: 20px 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .context-stat .stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .context-stat .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Diagnostic card */
+    .diagnostic {
+      background: var(--red-dim);
+      border: 1px solid rgba(220,38,38,0.12);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    .diagnostic-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .diagnostic-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(220,38,38,0.1);
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .diagnostic-header h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--red);
+    }
+
+    .diagnostic-header .score {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--red);
+      margin-left: auto;
+      background: rgba(220,38,38,0.1);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .diagnostic-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .diagnostic-list li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.6;
+    }
+
+    .diagnostic-list li .bullet {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* Scope cards grid */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .scope-card {
+      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scope-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .scope-card:hover {
+      border-color: var(--border-bright);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .scope-card:hover::before {
+      opacity: 1;
+    }
+
+    .scope-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin-bottom: 14px;
+      border: 1px solid;
+    }
+
+    .scope-icon.purple { background: var(--accent-dim); border-color: rgba(124,58,237,0.15); color: var(--accent); }
+    .scope-icon.cyan { background: var(--cyan-dim); border-color: rgba(8,145,178,0.12); color: var(--cyan); }
+    .scope-icon.green { background: var(--green-dim); border-color: rgba(22,163,74,0.12); color: var(--green); }
+    .scope-icon.amber { background: var(--amber-dim); border-color: rgba(217,119,6,0.12); color: var(--amber); }
+
+    .scope-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .scope-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .scope-card-full {
+      grid-column: 1 / -1;
+    }
+
+    .pages-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pages-list li {
+      padding: 14px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .pages-list li strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .pages-list li span {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Features list */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .features-grid li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+      list-style: none;
+    }
+
+    .features-grid li .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .features-grid li .dot.cyan { background: var(--cyan); }
+    .features-grid li .dot.green { background: var(--green); }
+
+    /* Add-ons */
+    .addons-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .addon-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .addon-card:hover {
+      border-color: var(--border-bright);
+      box-shadow: var(--shadow-md);
+    }
+
+    .addon-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 24px 24px 0;
+    }
+
+    .addon-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .addon-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border: 1px solid;
+      flex-shrink: 0;
+    }
+
+    .addon-icon.strat { background: var(--cyan-dim); border-color: rgba(8,145,178,0.15); color: var(--cyan); }
+    .addon-icon.ai { background: var(--accent-dim); border-color: rgba(124,58,237,0.15); color: var(--accent); }
+    .addon-icon.frame { background: var(--green-dim); border-color: rgba(22,163,74,0.15); color: var(--green); }
+
+    .addon-header h3 {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .addon-header .addon-type {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .addon-price-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .addon-price-tag .addon-freq {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .addon-body {
+      padding: 16px 24px 24px;
+    }
+
+    .addon-body > p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .addon-includes {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .addon-includes li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+
+    .addon-includes li .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .addon-includes li .dot.cyan { background: var(--cyan); }
+    .addon-includes li .dot.green { background: var(--green); }
+
+    .addon-separator {
+      height: 1px;
+      background: var(--border);
+      margin: 0 24px;
+    }
+
+    .addon-footer {
+      padding: 14px 24px;
+      background: var(--bg);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .addon-footer .spark {
+      font-size: 14px;
+    }
+
+    /* Exclusions */
+    .exclusions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .exclusion-tag {
+      padding: 8px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--text-muted);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .exclusion-tag .x {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--red-dim);
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Timeline */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-step {
+      background: var(--bg-card);
+      padding: 28px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .timeline-step:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .timeline-step:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+
+    .step-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+      opacity: 0.2;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .step-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Alert cards */
+    .alert-card {
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid;
+      margin-bottom: 12px;
+    }
+
+    .alert-card.warning {
+      background: var(--amber-dim);
+      border-color: rgba(217,119,6,0.15);
+    }
+
+    .alert-card.info {
+      background: var(--cyan-dim);
+      border-color: rgba(8,145,178,0.12);
+    }
+
+    .alert-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .alert-icon {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .alert-card.warning .alert-icon {
+      background: rgba(217,119,6,0.12);
+      color: var(--amber);
+    }
+
+    .alert-card.info .alert-icon {
+      background: rgba(8,145,178,0.12);
+      color: var(--cyan);
+    }
+
+    .alert-header h4 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .alert-card p, .alert-card li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .alert-card ul {
+      margin-top: 10px;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .alert-card li strong {
+      color: var(--text);
+    }
+
+    /* Price section */
+    .price-block {
+      background: var(--text);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .price-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-light), var(--cyan));
+    }
+
+    .price-main {
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .price-main::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(124,58,237,0.1), transparent 70%);
+      pointer-events: none;
+    }
+
+    .price-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--accent-light);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .price-amount {
+      font-size: clamp(48px, 8vw, 72px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 8px;
+      color: #fafafa;
+      position: relative;
+      z-index: 1;
+    }
+
+    .price-currency {
+      font-size: 14px;
+      color: #9191a0;
+      font-weight: 400;
+      position: relative;
+      z-index: 1;
+    }
+
+    .price-footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .price-split {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .price-split:first-child {
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .price-split-label {
+      color: #9191a0;
+      font-size: 13px;
+    }
+
+    .price-split-amount {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fafafa;
+    }
+
+    .price-note {
+      padding: 16px 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 12px;
+      color: #71717a;
+      text-align: center;
+    }
+
+    /* Before/After comparison */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .compare-side {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .compare-mockup {
+      width: 100%;
+      height: 280px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .compare-side.before .compare-mockup {
+      background: #1a1a1a;
+    }
+
+    .compare-side.after .compare-mockup {
+      background: linear-gradient(135deg, #f0f0f3, #e8e8ec);
+    }
+
+    .compare-mockup-text {
+      text-align: center;
+    }
+
+    .compare-mockup-text .mock-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .compare-side.before .compare-mockup-text .mock-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: #ff4444;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .compare-side.before .compare-mockup-text .mock-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .compare-side.after .compare-mockup-text .mock-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .compare-side.after .compare-mockup-text .mock-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .compare-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      z-index: 2;
+    }
+
+    .compare-side.before .compare-tag {
+      background: rgba(0,0,0,0.6);
+      color: #fafafa;
+    }
+
+    .compare-side.after .compare-tag {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .compare-caption {
+      padding: 14px 16px;
+      background: var(--bg-card);
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    .compare-caption strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 14px;
+    }
+
+    /* Delivery badge */
+    .delivery-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 10px 18px;
+      background: var(--green-dim);
+      border: 1px solid rgba(22,163,74,0.15);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .delivery-badge .clock {
+      font-size: 16px;
+    }
+
+    /* Policy box */
+    .policy-box {
+      margin-top: 20px;
+      padding: 20px 24px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(124,58,237,0.12);
+      border-radius: var(--radius-sm);
+    }
+
+    .policy-box h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--accent);
+      letter-spacing: -0.3px;
+    }
+
+    .policy-box p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .policy-box .policy-steps {
+      list-style: none;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .policy-box .policy-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .policy-box .policy-steps .step-badge {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .policy-box .policy-steps li strong {
+      color: var(--text);
+    }
+
+    /* Validity */
+    .validity {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .validity strong {
+      color: var(--text);
+    }
+
+    .validity p + p {
+      margin-top: 4px;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 64px 0;
+      position: relative;
+    }
+
+    .divider::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-name {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+
+    .footer-role {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .footer-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      transition: all 0.2s;
+    }
+
+    .footer-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .footer-tagline {
+      margin-top: 32px;
+      font-size: 11px;
+      color: var(--text-muted);
+      opacity: 0.5;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 680px) {
+      .page { padding: 24px 16px 60px; }
+      .topbar { margin-bottom: 48px; }
+      .hero { margin-bottom: 56px; }
+      .hero h1 { font-size: 32px; letter-spacing: -1px; }
+      .hero-sub { font-size: 16px; }
+      .hero-client { width: 100%; }
+      .section-heading { font-size: 24px; }
+      .section-desc { font-size: 14px; }
+      .scope-grid { grid-template-columns: 1fr; }
+      .scope-card-full { grid-column: auto; }
+      .pages-list { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .context-stats { grid-template-columns: 1fr 1fr; }
+      .compare { grid-template-columns: 1fr; }
+      .compare-mockup { height: 220px; }
+      .delivery-badge { font-size: 13px; }
+      .timeline { grid-template-columns: 1fr 1fr; gap: 2px; }
+      .timeline-step:first-child { border-radius: var(--radius-sm) 0 0 0; }
+      .timeline-step:nth-child(2) { border-radius: 0 var(--radius-sm) 0 0; }
+      .timeline-step:nth-child(3) { border-radius: 0 0 0 var(--radius-sm); }
+      .timeline-step:last-child { border-radius: 0 0 var(--radius-sm) 0; }
+      .timeline-step { padding: 20px 14px; }
+      .step-num { font-size: 24px; }
+      .policy-box { padding: 16px; }
+      .alert-card { padding: 18px; }
+      .price-footer { grid-template-columns: 1fr; }
+      .price-split:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .price-amount { font-size: 42px; }
+      .addon-header { flex-direction: column; gap: 12px; }
+      .addon-price-tag { text-align: left; }
+      .addon-includes { grid-template-columns: 1fr; }
+      .addon-body > p { font-size: 13px; }
+      .exclusions { gap: 6px; }
+      .exclusion-tag { font-size: 12px; padding: 6px 12px; }
+      .divider { margin: 48px 0; }
+      .validity { padding: 32px 16px; }
+      .footer-links { flex-direction: column; align-items: center; }
+    }
+
+    @media print {
+      body { background: white; }
+      .glow-1, .glow-2, .glow-3 { display: none; }
+    }
+
+    /* Entrance animations */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .topbar { animation: fade-up 0.6s ease both; }
+    .hero { animation: fade-up 0.6s ease 0.1s both; }
+    .section:nth-child(1) { animation: fade-up 0.6s ease 0.2s both; }
+    .section:nth-child(2) { animation: fade-up 0.6s ease 0.3s both; }
+    .section:nth-child(3) { animation: fade-up 0.6s ease 0.4s both; }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient glows -->
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+  <div class="glow-3"></div>
+
+  <div class="page">
+
+    <!-- Top bar -->
+    <nav class="topbar">
+      <div class="logo">luigy<span>.</span>roso</div>
+      <div class="topbar-meta">
+        <span class="status-dot"></span>
+        <span>MAR 2026</span>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">// Propuesta Comercial</div>
+      <h1>Redise&ntilde;o Web<br>Completo</h1>
+      <p class="hero-sub">
+        Sitio web nuevo desde cero con <strong>est&eacute;tica moderna 2030</strong>,
+        buscador de veh&iacute;culo inteligente y presencia digital que refleje
+        los <strong>37+ a&ntilde;os</strong> de liderazgo en repuestos europeos.
+      </p>
+      <div class="hero-client">
+        <div class="hero-client-icon">D</div>
+        <div class="hero-client-text">
+          <strong>DCN Autopartes</strong>
+          Preparado para el equipo directivo
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Context -->
+    <section class="section">
+      <div class="section-label">01 &mdash; Contexto</div>
+      <h2 class="section-heading">Qui&eacute;n es DCN Autopartes</h2>
+      <p class="section-desc">
+        Un distribuidor colombiano de autopartes con presencia nacional y
+        especializaci&oacute;n en veh&iacute;culos europeos.
+      </p>
+
+      <div class="context-card">
+        <p>
+          <strong>DCN Autopartes</strong> es un distribuidor colombiano de autopartes
+          especializado en <strong>veh&iacute;culos europeos</strong> (VW, BMW, Mercedes-Benz, Volvo),
+          con <strong>37+ a&ntilde;os</strong> en el mercado. Sede principal en Bucaramanga y
+          subsidiaria <strong>Imporbrake</strong> en Bogot&aacute;. Miembro de
+          <strong>Red Groupauto</strong>.
+        </p>
+
+        <div class="context-stats">
+          <div class="context-stat">
+            <div class="stat-value">~4.7B</div>
+            <div class="stat-label">COP/mes<br>facturaci&oacute;n</div>
+          </div>
+          <div class="context-stat">
+            <div class="stat-value">1,150</div>
+            <div class="stat-label">clientes<br>activos</div>
+          </div>
+          <div class="context-stat">
+            <div class="stat-value">60</div>
+            <div class="stat-label">vendedores<br>en campo</div>
+          </div>
+          <div class="context-stat">
+            <div class="stat-value">14K+</div>
+            <div class="stat-label">SKUs en<br>cat&aacute;logo</div>
+          </div>
+        </div>
+
+        <div class="diagnostic">
+          <div class="diagnostic-header">
+            <div class="diagnostic-icon">&#9888;</div>
+            <h4>Diagn&oacute;stico del sitio actual</h4>
+            <span class="score">5/10</span>
+          </div>
+          <ul class="diagnostic-list">
+            <li><span class="bullet"></span> Sitio inestable &mdash; errores 500 frecuentes en dcnautopartes.com</li>
+            <li><span class="bullet"></span> La especializaci&oacute;n europea es invisible en la web</li>
+            <li><span class="bullet"></span> Cat&aacute;logo muestra 1 sola categor&iacute;a para 14,000+ referencias</li>
+            <li><span class="bullet"></span> Solo 2 marcas listadas de las 14+ que distribuyen</li>
+            <li><span class="bullet"></span> Sin buscador de veh&iacute;culo ni integraci&oacute;n WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before / After -->
+    <section class="section">
+      <div class="section-label">02 &mdash; Visi&oacute;n</div>
+      <h2 class="section-heading">Antes y despu&eacute;s</h2>
+      <p class="section-desc">
+        Del sitio con errores 500 a una presencia digital premium
+        que compita al nivel del negocio.
+      </p>
+
+      <div class="compare">
+        <div class="compare-side before">
+          <span class="compare-tag">Actual</span>
+          <div class="compare-mockup">
+            <div class="compare-mockup-text">
+              <span class="mock-icon">&#9888;</span>
+              <div class="mock-title">ERROR 500</div>
+              <div class="mock-url">dcnautopartes.com</div>
+            </div>
+          </div>
+          <div class="compare-caption">
+            <strong>dcnautopartes.com</strong>
+            Sitio inestable, sin especializaci&oacute;n europea visible, cat&aacute;logo limitado.
+          </div>
+        </div>
+        <div class="compare-side after">
+          <span class="compare-tag">Nuevo</span>
+          <div class="compare-mockup">
+            <div class="compare-mockup-text">
+              <span class="mock-icon">&#9733;</span>
+              <div class="mock-title">11 P&Aacute;GINAS</div>
+              <div class="mock-url">Est&eacute;tica 2030 &middot; Mobile-first</div>
+            </div>
+          </div>
+          <div class="compare-caption">
+            <strong>Nuevo dise&ntilde;o propuesto</strong>
+            Buscador inteligente, especialización europea, 14 marcas, mapa interactivo.
+          </div>
+        </div>
+      </div>
+
+      <div class="delivery-badge">
+        <span class="clock">&#9201;</span>
+        Entrega estimada: 15&ndash;20 d&iacute;as h&aacute;biles
+      </div>
+    </section>
+
+    <!-- Scope -->
+    <section class="section">
+      <div class="section-label">03 &mdash; Alcance</div>
+      <h2 class="section-heading">Qu&eacute; incluye</h2>
+      <p class="section-desc">
+        Redise&ntilde;o completo del sitio web desde cero. 11 p&aacute;ginas,
+        est&eacute;tica moderna y funcionalidades premium.
+      </p>
+
+      <div class="scope-grid">
+        <div class="scope-card scope-card-full">
+          <div class="scope-icon purple">&#9670;</div>
+          <h3>11 p&aacute;ginas dise&ntilde;adas desde cero</h3>
+          <p>Sitio completo con dise&ntilde;o premium, responsive mobile-first y animaciones de scroll:</p>
+          <ul class="pages-list">
+            <li>
+              <strong>Homepage</strong>
+              <span>Video hero, buscador de veh&iacute;culo, estad&iacute;sticas animadas, testimonios, mapa de cobertura</span>
+            </li>
+            <li>
+              <strong>Nosotros</strong>
+              <span>Historia, pilares, galer&iacute;a, video YouTube, estad&iacute;sticas</span>
+            </li>
+            <li>
+              <strong>Cat&aacute;logo</strong>
+              <span>9 categor&iacute;as de productos organizadas</span>
+            </li>
+            <li>
+              <strong>Marcas</strong>
+              <span>Overview + p&aacute;ginas detalle (MAHLE, INA, etc.)</span>
+            </li>
+            <li>
+              <strong>Blog</strong>
+              <span>Listado + 2 art&iacute;culos iniciales</span>
+            </li>
+            <li>
+              <strong>Contacto</strong>
+              <span>Formulario, mapa, info completa</span>
+            </li>
+            <li>
+              <strong>Pol&iacute;tica Privacidad</strong>
+              <span>Habeas Data (Ley 1581/2012)</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-icon cyan">&#9672;</div>
+          <h3>Buscador de Veh&iacute;culo/Repuesto</h3>
+          <p>Sistema Marca &rarr; Modelo &rarr; A&ntilde;o con mensaje pre-llenado a WhatsApp Business. El cliente encuentra su repuesto en 3 clicks.</p>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon green">&#9650;</div>
+          <h3>Especializaci&oacute;n Europea</h3>
+          <p>Secci&oacute;n dedicada a VW, BMW, Mercedes-Benz y Volvo. El diferenciador #1 de DCN ahora visible y prominente en la web.</p>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon amber">&#11044;</div>
+          <h3>Mapa SVG Interactivo</h3>
+          <p>Mapa de cobertura con Bucaramanga (DCN) y Bogot&aacute; (Imporbrake). Animado, responsivo e informativo.</p>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon purple">&#8635;</div>
+          <h3>Brand Marquee &amp; Social Proof</h3>
+          <p>Carrusel animado con las 14+ marcas distribuidas. Secci&oacute;n de testimonios y cross-sell con Imporbrake.</p>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon cyan">&#9641;</div>
+          <h3>100% Responsive + SEO</h3>
+          <p>Mobile-first, meta tags, structured data, animaciones de scroll premium. Optimizado para Google desde el d&iacute;a uno.</p>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon green">&#9733;</div>
+          <h3>Integraciones Clave</h3>
+          <p>WhatsApp Business flotante, bot&oacute;n PSE para pagos, newsletter subscription y formularios con validaci&oacute;n.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exclusions -->
+    <section class="section">
+      <div class="section-label">04 &mdash; Fuera de alcance</div>
+      <h2 class="section-heading">No incluido</h2>
+      <p class="section-desc">
+        Los siguientes servicios no hacen parte de esta propuesta.
+        Pueden cotizarse aparte si se requieren.
+      </p>
+
+      <div class="exclusions">
+        <div class="exclusion-tag"><span class="x">&times;</span> Hosting / Dominio (DCN ya tiene)</div>
+        <div class="exclusion-tag"><span class="x">&times;</span> Redacci&oacute;n de contenido adicional</div>
+        <div class="exclusion-tag"><span class="x">&times;</span> Fotograf&iacute;a profesional</div>
+        <div class="exclusion-tag"><span class="x">&times;</span> E-commerce / Carrito de compras</div>
+        <div class="exclusion-tag"><span class="x">&times;</span> Integraci&oacute;n SIESA (Phase 2)</div>
+        <div class="exclusion-tag"><span class="x">&times;</span> Gesti&oacute;n de redes sociales</div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Process -->
+    <section class="section">
+      <div class="section-label">05 &mdash; Proceso</div>
+      <h2 class="section-heading">C&oacute;mo se ejecuta</h2>
+      <p class="section-desc">
+        Cuatro fases claras con comunicaci&oacute;n constante en cada etapa.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="step-num">01</div>
+          <div class="step-title">Prototipo</div>
+          <div class="step-desc">Dise&ntilde;o HTML/CSS/JS est&aacute;tico de las 11 p&aacute;ginas</div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">02</div>
+          <div class="step-title">Revisi&oacute;n</div>
+          <div class="step-desc">Presentaci&oacute;n y 2 rondas de ajustes</div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">03</div>
+          <div class="step-title">Montaje</div>
+          <div class="step-desc">Deploy del sitio aprobado en producci&oacute;n</div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">04</div>
+          <div class="step-title">Entrega</div>
+          <div class="step-desc">QA, ajustes finales y handoff</div>
+        </div>
+      </div>
+
+      <div class="policy-box">
+        <h4>Pol&iacute;tica de revisiones</h4>
+        <ul class="policy-steps">
+          <li>
+            <span class="step-badge">1</span>
+            <div><strong>Antes del montaje final</strong> se presentar&aacute; el dise&ntilde;o para revisi&oacute;n. Se incluyen <strong>2 rondas de cambios</strong> en esta etapa.</div>
+          </li>
+          <li>
+            <span class="step-badge">2</span>
+            <div><strong>Cambios de alcance despu&eacute;s del montaje</strong> se cotizan por separado. El montaje se realiza &uacute;nicamente despu&eacute;s de la aprobaci&oacute;n definitiva del dise&ntilde;o.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Investment -->
+    <section class="section">
+      <div class="section-label">06 &mdash; Inversi&oacute;n</div>
+      <h2 class="section-heading">Valor del proyecto</h2>
+      <p class="section-desc">
+        Fase 1 &mdash; Redise&ntilde;o web completo de 11 p&aacute;ginas con todas
+        las funcionalidades descritas.
+      </p>
+
+      <div class="price-block">
+        <div class="price-main">
+          <div class="price-tag">Fase 1 &mdash; Redise&ntilde;o Web</div>
+          <div class="price-amount">$7.500.000</div>
+          <div class="price-currency">COP &mdash; Pesos colombianos</div>
+        </div>
+        <div class="price-footer">
+          <div class="price-split">
+            <span class="price-split-label">Anticipo (50%)</span>
+            <span class="price-split-amount">$3.750.000</span>
+          </div>
+          <div class="price-split">
+            <span class="price-split-label">Entrega (50%)</span>
+            <span class="price-split-amount">$3.750.000</span>
+          </div>
+        </div>
+        <div class="price-note">
+          Entrega: 15&ndash;20 d&iacute;as h&aacute;biles &middot; 2 rondas de revisi&oacute;n incluidas
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Add-ons / Phase 2 -->
+    <section class="section">
+      <div class="section-label">07 &mdash; Fase 2 &amp; Add-ons</div>
+      <h2 class="section-heading">Potencia tu inversi&oacute;n</h2>
+      <p class="section-desc">
+        Servicios opcionales que complementan el redise&ntilde;o web y llevan
+        la presencia digital de DCN al siguiente nivel.
+      </p>
+
+      <div class="addons-grid">
+
+        <!-- Framework Migration -->
+        <div class="addon-card">
+          <div class="addon-header">
+            <div class="addon-header-left">
+              <div class="addon-icon frame">&#9672;</div>
+              <div>
+                <h3>Migraci&oacute;n a Framework + Formularios</h3>
+                <div class="addon-type">Astro/Next.js &middot; Deploy profesional</div>
+              </div>
+            </div>
+            <div class="addon-price-tag">
+              $3.500.000
+              <span class="addon-freq">pago &uacute;nico</span>
+            </div>
+          </div>
+          <div class="addon-body">
+            <p>
+              El prototipo de Fase 1 es HTML/CSS/JS est&aacute;tico. Esta fase lo migra a un
+              framework moderno para <strong>performance, SEO avanzado y mantenimiento</strong>
+              a largo plazo.
+            </p>
+            <ul class="addon-includes">
+              <li><span class="dot green"></span> Migraci&oacute;n a Astro o Next.js</li>
+              <li><span class="dot green"></span> Formularios funcionales (contacto + cotizaci&oacute;n)</li>
+              <li><span class="dot green"></span> SEO t&eacute;cnico: schema markup, sitemap.xml, robots.txt</li>
+              <li><span class="dot green"></span> Core Web Vitals optimization</li>
+              <li><span class="dot green"></span> Deploy profesional (Vercel/Netlify)</li>
+              <li><span class="dot green"></span> Documentaci&oacute;n t&eacute;cnica del proyecto</li>
+            </ul>
+          </div>
+          <div class="addon-separator"></div>
+          <div class="addon-footer">
+            Futuro: <strong>&nbsp;Conexi&oacute;n SIESA</strong>&nbsp; para cat&aacute;logo din&aacute;mico y portal B2B &middot; <strong>Blog CMS</strong>&nbsp; headless para publicar sin c&oacute;digo
+          </div>
+        </div>
+
+        <!-- AI Advisory -->
+        <div class="addon-card">
+          <div class="addon-header">
+            <div class="addon-header-left">
+              <div class="addon-icon ai">&#10038;</div>
+              <div>
+                <h3>Asesor&iacute;a en Inteligencia Artificial</h3>
+                <div class="addon-type">Evaluaci&oacute;n + implementaci&oacute;n</div>
+              </div>
+            </div>
+            <div class="addon-price-tag">
+              $1.500.000
+              <span class="addon-freq">sesi&oacute;n &uacute;nica</span>
+            </div>
+          </div>
+          <div class="addon-body">
+            <p>
+              Evaluaci&oacute;n personalizada de herramientas de IA aplicables al negocio
+              de DCN: atenci&oacute;n al cliente, gesti&oacute;n de inventario, generaci&oacute;n de
+              contenido, an&aacute;lisis de ventas y m&aacute;s.
+            </p>
+            <ul class="addon-includes">
+              <li><span class="dot"></span> An&aacute;lisis de procesos actuales de DCN</li>
+              <li><span class="dot"></span> Identificaci&oacute;n de oportunidades de IA</li>
+              <li><span class="dot"></span> Recomendaci&oacute;n de herramientas espec&iacute;ficas</li>
+              <li><span class="dot"></span> Plan de implementaci&oacute;n priorizado</li>
+              <li><span class="dot"></span> Capacitaci&oacute;n pr&aacute;ctica al equipo</li>
+              <li><span class="dot"></span> Documento de referencia post-sesi&oacute;n</li>
+            </ul>
+          </div>
+          <div class="addon-separator"></div>
+          <div class="addon-footer">
+            <span class="spark">&#10024;</span> <strong>&nbsp;$1.000.000</strong>&nbsp; si se contrata junto con el redise&ntilde;o web (combo)
+          </div>
+          <div class="addon-separator"></div>
+          <div class="addon-footer" style="color: var(--text-muted); font-size: 11px;">
+            * La suscripci&oacute;n mensual a herramientas de IA no est&aacute; incluida en este servicio.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Validity -->
+    <div class="validity">
+      <p>Esta propuesta tiene validez de <strong>30 d&iacute;as</strong> a partir de la fecha de env&iacute;o.</p>
+      <p>Para aceptar, basta confirmar por escrito (correo o WhatsApp) y coordinar el anticipo.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-name">Luigy Roso</div>
+      <div class="footer-role">Desarrollo Web &amp; Estrategia Digital</div>
+      <div class="footer-links">
+        <a href="https://wa.me/573118905737" class="footer-link" target="_blank">WhatsApp</a>
+        <a href="mailto:luigyroso@gmail.com" class="footer-link">Email</a>
+      </div>
+      <div class="footer-tagline">Desarrollado por Luigy Roso &middot; 2026</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
