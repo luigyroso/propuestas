@@ -308,6 +308,43 @@
       line-height: 1.6;
     }
 
+    .scope-card-full {
+      grid-column: 1 / -1;
+    }
+
+    .b2b-pages {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .b2b-pages li {
+      padding: 14px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .b2b-pages li strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .b2b-pages li span {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 680px) {
+      .b2b-pages { grid-template-columns: 1fr; }
+    }
+
     /* Exclusions */
     .exclusions {
       display: flex;
@@ -1106,8 +1143,8 @@
       <div class="scope-grid">
         <div class="scope-card">
           <div class="scope-icon purple">&#9670;</div>
-          <h3>6 p&aacute;ginas redise&ntilde;adas</h3>
-          <p>Inicio, Nosotros, Productos, Sucursales, Contacto y Recetas. Nuevo tema, tipograf&iacute;a, paleta de colores e im&aacute;genes. Imagen premium, institucional y alineada con la marca.</p>
+          <h3>9+ p&aacute;ginas redise&ntilde;adas</h3>
+          <p>6 p&aacute;ginas base (Inicio, Nosotros, Productos, Sucursales, Contacto y Recetas) + 3 landing pages B2B. Nuevo tema, tipograf&iacute;a, paleta de colores e im&aacute;genes.</p>
         </div>
         <div class="scope-card">
           <div class="scope-icon cyan">&#9672;</div>
@@ -1133,6 +1170,30 @@
           <div class="scope-icon purple">&#8635;</div>
           <h3>Actualizaci&oacute;n core WP</h3>
           <p>WordPress, tema y plugins actualizados a versiones m&aacute;s recientes con verificaci&oacute;n de compatibilidad.</p>
+        </div>
+        <div class="scope-card">
+          <div class="scope-icon amber">&#9776;</div>
+          <h3>Cat&aacute;logos PDF indexados</h3>
+          <p>Los cat&aacute;logos de productos actuales en PDF se convertir&aacute;n a p&aacute;ginas HTML navegables con b&uacute;squeda y filtros, permitiendo que Google los indexe y los clientes los compartan por URL.</p>
+        </div>
+        <div class="scope-card scope-card-full">
+          <div class="scope-icon green">&#9733;</div>
+          <h3>3 landing pages B2B nuevas</h3>
+          <p>P&aacute;ginas dedicadas para cada canal de negocio, optimizadas para captar clientes empresariales directamente desde Google:</p>
+          <ul class="b2b-pages">
+            <li>
+              <strong>HoReCa</strong>
+              <span>Restaurantes, hoteles y catering. Entrega mismo d&iacute;a, asesor dedicado, cat&aacute;logo especializado.</span>
+            </li>
+            <li>
+              <strong>Retail</strong>
+              <span>Tiendas de barrio y minimercados. Pedido m&iacute;nimo flexible, cr&eacute;dito 30 d&iacute;as, cobertura por zona.</span>
+            </li>
+            <li>
+              <strong>Institucional</strong>
+              <span>Colegios, hospitales y empresas. Cotizaci&oacute;n por volumen, facturaci&oacute;n electr&oacute;nica, entregas programadas.</span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
