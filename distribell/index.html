@@ -345,6 +345,144 @@
       .b2b-pages { grid-template-columns: 1fr; }
     }
 
+    /* Add-ons */
+    .addons-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .addon-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .addon-card:hover {
+      border-color: var(--border-bright);
+      box-shadow: var(--shadow-md);
+    }
+
+    .addon-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 24px 24px 0;
+    }
+
+    .addon-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .addon-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border: 1px solid;
+      flex-shrink: 0;
+    }
+
+    .addon-icon.strat { background: var(--cyan-dim); border-color: rgba(8,145,178,0.15); color: var(--cyan); }
+    .addon-icon.ai { background: var(--accent-dim); border-color: rgba(124,58,237,0.15); color: var(--accent); }
+
+    .addon-header h3 {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .addon-header .addon-type {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .addon-price-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .addon-price-tag .addon-freq {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .addon-body {
+      padding: 16px 24px 24px;
+    }
+
+    .addon-body > p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .addon-includes {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .addon-includes li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+
+    .addon-includes li .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .addon-includes li .dot.cyan { background: var(--cyan); }
+
+    .addon-separator {
+      height: 1px;
+      background: var(--border);
+      margin: 0 24px;
+    }
+
+    .addon-footer {
+      padding: 14px 24px;
+      background: var(--bg);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .addon-footer .spark {
+      font-size: 14px;
+    }
+
+    @media (max-width: 680px) {
+      .addon-includes { grid-template-columns: 1fr; }
+    }
+
     /* Exclusions */
     .exclusions {
       display: flex;
@@ -1336,6 +1474,94 @@
         <div class="price-note">
           Cubre la totalidad del alcance descrito. Requerimientos adicionales se cotizan por separado.
         </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Add-ons -->
+    <section class="section">
+      <div class="section-label">07 &mdash; Servicios adicionales</div>
+      <h2 class="section-heading">Potencia tu inversi&oacute;n</h2>
+      <p class="section-desc">
+        Servicios opcionales que complementan el redise&ntilde;o web y aceleran
+        los resultados comerciales de Distribell.
+      </p>
+
+      <div class="addons-grid">
+
+        <!-- Estrategia Digital -->
+        <div class="addon-card">
+          <div class="addon-header">
+            <div class="addon-header-left">
+              <div class="addon-icon strat">&#9678;</div>
+              <div>
+                <h3>Estrategia digital B2B</h3>
+                <div class="addon-type">Setup + acompa&ntilde;amiento mensual</div>
+              </div>
+            </div>
+            <div class="addon-price-tag">
+              $2.500.000
+              <span class="addon-freq">setup &uacute;nico</span>
+            </div>
+          </div>
+          <div class="addon-body">
+            <p>
+              Co-creamos con el equipo de Distribell una estrategia digital enfocada en
+              atraer clientes B2B (restaurantes, tiendas, instituciones) y convertir
+              el sitio web en un canal real de captaci&oacute;n.
+            </p>
+            <ul class="addon-includes">
+              <li><span class="dot cyan"></span> Google Business Profile para las 4 sucursales</li>
+              <li><span class="dot cyan"></span> Google Analytics 4 + Search Console</li>
+              <li><span class="dot cyan"></span> Estrategia de keywords B2B para Bogot&aacute;</li>
+              <li><span class="dot cyan"></span> WhatsApp Business con cat&aacute;logo y respuestas autom&aacute;ticas</li>
+              <li><span class="dot cyan"></span> Definici&oacute;n de buyer personas por canal</li>
+              <li><span class="dot cyan"></span> Calendario de contenido para el primer mes</li>
+            </ul>
+          </div>
+          <div class="addon-separator"></div>
+          <div class="addon-footer">
+            Acompa&ntilde;amiento mensual opcional: <strong>&nbsp;$1.500.000/mes</strong> &nbsp;(Google Ads, redes sociales, reportes, SEO continuo)
+          </div>
+        </div>
+
+        <!-- Asesoria AI -->
+        <div class="addon-card">
+          <div class="addon-header">
+            <div class="addon-header-left">
+              <div class="addon-icon ai">&#10038;</div>
+              <div>
+                <h3>Asesor&iacute;a en inteligencia artificial</h3>
+                <div class="addon-type">Capacitaci&oacute;n + implementaci&oacute;n</div>
+              </div>
+            </div>
+            <div class="addon-price-tag">
+              $1.800.000
+              <span class="addon-freq">sesi&oacute;n &uacute;nica</span>
+            </div>
+          </div>
+          <div class="addon-body">
+            <p>
+              Sesi&oacute;n personalizada donde capacitamos al equipo de Distribell en el uso
+              de herramientas de IA para optimizar operaciones del d&iacute;a a d&iacute;a: atenci&oacute;n al
+              cliente, generaci&oacute;n de contenido, an&aacute;lisis de datos y m&aacute;s.
+            </p>
+            <ul class="addon-includes">
+              <li><span class="dot"></span> Instalaci&oacute;n y configuraci&oacute;n de Claude en equipos del equipo</li>
+              <li><span class="dot"></span> Entrenamiento pr&aacute;ctico con casos reales de Distribell</li>
+              <li><span class="dot"></span> Automatizaci&oacute;n de respuestas para WhatsApp Business</li>
+              <li><span class="dot"></span> Generaci&oacute;n de contenido para redes y cat&aacute;logos</li>
+              <li><span class="dot"></span> Plantillas de prompts personalizados para el equipo</li>
+              <li><span class="dot"></span> Gu&iacute;a de referencia post-sesi&oacute;n en PDF</li>
+            </ul>
+          </div>
+          <div class="addon-separator"></div>
+          <div class="addon-footer">
+            <span class="spark">&#10024;</span> Incluye licencia de Claude activa y configurada para uso inmediato
+          </div>
+        </div>
+
       </div>
     </section>
 
