@@ -341,10 +341,6 @@
       line-height: 1.5;
     }
 
-    @media (max-width: 680px) {
-      .b2b-pages { grid-template-columns: 1fr; }
-    }
-
     /* Add-ons */
     .addons-grid {
       display: flex;
@@ -477,10 +473,6 @@
 
     .addon-footer .spark {
       font-size: 14px;
-    }
-
-    @media (max-width: 680px) {
-      .addon-includes { grid-template-columns: 1fr; }
     }
 
     /* Exclusions */
@@ -1121,25 +1113,42 @@
       color: var(--text);
     }
 
-    @media (max-width: 680px) {
-      .compare { grid-template-columns: 1fr; }
-    }
-
     /* Responsive */
     @media (max-width: 680px) {
       .page { padding: 24px 16px 60px; }
       .topbar { margin-bottom: 48px; }
       .hero { margin-bottom: 56px; }
+      .hero h1 { font-size: 32px; letter-spacing: -1px; }
+      .hero-sub { font-size: 16px; }
+      .hero-client { width: 100%; }
+      .section-heading { font-size: 24px; }
+      .section-desc { font-size: 14px; }
       .scope-grid { grid-template-columns: 1fr; }
+      .scope-card-full { grid-column: auto; }
+      .b2b-pages { grid-template-columns: 1fr; }
+      .compare { grid-template-columns: 1fr; }
+      .compare-mockup { height: 220px; }
+      .delivery-badge { font-size: 13px; }
       .timeline { grid-template-columns: 1fr 1fr; gap: 2px; }
       .timeline-step:first-child { border-radius: var(--radius-sm) 0 0 0; }
       .timeline-step:nth-child(2) { border-radius: 0 var(--radius-sm) 0 0; }
       .timeline-step:nth-child(3) { border-radius: 0 0 0 var(--radius-sm); }
       .timeline-step:last-child { border-radius: 0 0 var(--radius-sm) 0; }
+      .timeline-step { padding: 20px 14px; }
+      .step-num { font-size: 24px; }
+      .policy-box { padding: 16px; }
+      .alert-card { padding: 18px; }
       .price-footer { grid-template-columns: 1fr; }
       .price-split:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-      .section-heading { font-size: 24px; }
+      .price-amount { font-size: 42px; }
+      .addon-header { flex-direction: column; gap: 12px; }
+      .addon-price-tag { text-align: left; }
+      .addon-includes { grid-template-columns: 1fr; }
+      .addon-body > p { font-size: 13px; }
+      .exclusions { gap: 6px; }
+      .exclusion-tag { font-size: 12px; padding: 6px 12px; }
       .divider { margin: 48px 0; }
+      .validity { padding: 32px 16px; }
       .footer-links { flex-direction: column; align-items: center; }
     }
 
