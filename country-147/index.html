@@ -608,9 +608,10 @@
       d.toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' });
 
     // Lightbox
-    document.querySelectorAll('.card img').forEach(img => {
-      img.addEventListener('click', e => {
-        e.stopPropagation();
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        const img = card.querySelector('img');
+        if (!img) return;
         document.getElementById('lightbox-img').src = img.src;
         document.getElementById('lightbox').classList.add('open');
         document.body.style.overflow = 'hidden';
