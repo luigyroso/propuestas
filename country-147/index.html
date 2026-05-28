@@ -363,11 +363,52 @@
 
     .card img { cursor: zoom-in; }
 
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .grid.large {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+
     @media (max-width: 768px) {
-      header, nav, main, footer { padding-left: 20px; padding-right: 20px; }
-      header { flex-direction: column; align-items: flex-start; }
+      header { padding: 32px 20px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
       .header-right { text-align: left; }
-      .grid.hero { grid-template-columns: 1fr; }
+      .header-right p, .header-right .architect { font-size: 11px; }
+
+      nav { padding: 0 12px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      nav::-webkit-scrollbar { display: none; }
+      nav a { padding: 14px 16px; font-size: 10px; letter-spacing: 1.5px; }
+
+      main { padding: 28px 20px; }
+
+      .grid, .grid.large, .grid.hero {
+        grid-template-columns: 1fr;
+        gap: 1px;
+      }
+
+      .card img { height: 240px; }
+      .card.tall img { height: 300px; }
+      .card.short img { height: 180px; }
+
+      .placeholder { height: 200px; }
+
+      .section { margin-bottom: 48px; }
+      .section-header { margin-bottom: 20px; flex-wrap: wrap; gap: 8px; }
+      .section-note { font-size: 12px; max-width: 100%; }
+
+      .notes-grid { grid-template-columns: 1fr; }
+
+      footer { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
+
+      #lightbox img { max-width: 95vw; max-height: 80vh; }
+      #lightbox-close { top: 16px; right: 16px; font-size: 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .header-left h1 { font-size: 26px; }
+      nav a { padding: 12px 12px; font-size: 9px; letter-spacing: 1px; }
+      .card img { height: 200px; }
+      .swatch-color { width: 56px; height: 56px; }
     }
   </style>
 </head>
