@@ -200,22 +200,6 @@
       color: rgba(255,255,255,0.7);
     }
 
-    /* ── Rejection badge ── */
-    .badge-nogo {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: #c0392b;
-      color: #fff;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 2px;
-      font-weight: 600;
-      z-index: 2;
-    }
-
     .card-note {
       padding: 12px 14px;
       background: var(--surface);
@@ -225,9 +209,10 @@
       line-height: 1.6;
     }
 
-    .card-note strong {
-      color: #c0392b;
-      font-weight: 600;
+    .card-note em {
+      color: var(--accent);
+      font-style: normal;
+      font-weight: 500;
     }
 
     /* ── Placeholder card ── */
@@ -405,14 +390,13 @@
       <div class="grid large">
         <div class="card" style="display:flex; flex-direction:column;">
           <div style="position:relative; overflow:hidden;">
-            <span class="badge-nogo">× Detalle rechazado</span>
             <img src="ref-recibidor-01.jpg" alt="Referencia recibidor — paneles de madera, arco, consola flotante" style="height:340px;" />
             <div class="card-overlay">
               <span class="card-label">Ambiente — Madera + Arco</span>
             </div>
           </div>
           <div class="card-note">
-            <strong>NO-GO:</strong> tomas eléctricas negras visibles. Se deben usar tomas del color de la pared o embutidas discretamente. El resto del concepto (paneles verticales de madera, luz indirecta, consola flotante, arco) es referencia válida.
+            Concepto aprobado. <em>Nota:</em> evitar tomas eléctricas negras — preferir tomas embutidas en tono pared.
           </div>
         </div>
         <div class="placeholder">
